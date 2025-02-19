@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <!-- Menetapkan default dark mode -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kampusku</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <!-- Tambahkan Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script>
+        // Konfigurasi Tailwind untuk dark mode dan font kustom
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'great-vibes': ['Great Vibes', 'cursive'],
+                        'lobster': ['Lobster Two', 'cursive'],
+                        'dancing': ['Dancing Script"', 'cursive'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<style>
+    .background {
+        background-image: url('https://kumengundangmu1.my.id/wp-content/uploads/2024/07/kklhh-scaled-1-2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    @media (min-width: 360px) {
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            margin: 0px 0px 0px 0px;
+        }
+    }
+</style>
+
+<body class="bg-gray-50">
+    <div class="w-full lg:w-1/4 mx-auto max-width-auto">
+        <section id="invitation-overlay"
+            class="flex justify-center items-center flex-col gap-4 background w-full pt-20 lg:pt-28 pb-64 ">
+            <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/hfhfhfmmng-1-1.png" alt="" width="240px"
+                height="240px" class="animate__animated animate__fadeInDown">
+            <h1 class="text-4xl font-semibold animate__animated animate__fadeInDown font-lobster text-indigo-500">Ichsan
+                & Jisoo</h1>
+            <p class="animate__animated animate__fadeInDown">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h1 id="mengundang" class="text-2xl font-bold animate__animated animate__fadeInDown flex flex-wrap">Bang
+                Alee dan Partner
+            </h1>
+            <p class="text-center p-10 pb-5 pt-4 animate__animated animate__fadeInUp">Tanpa Mengurangi Rasa Hormat, Kami
+                Mengundang Anda Untuk Hadir Di Acara
+                Pernikahan Kami.</p>
+            <button id="open-invitation"
+                class="border bg-indigo-500 p-10 pt-4 pb-4 rounded-xl text-white animate__animated animate__fadeInUp"><i
+                    class="fa fa-envelope-open-o"></i>
+                Buka
+                Undangan</button>
+            <p class="p-2 text-center animate__animated animate__fadeInUp">Mohon maaf apabila ada kesalahan penulisan
+                nama/gelar</p>
+        </section>
+    </div>
+    <main id="main-content"
+        class="w-full lg:w-1/4 border border-2 border-indigo-500 flex flex-col justify-center mx-auto min-h-screen hidden">
+        <div class="flex navbar justify-center items-center -mt-28 hidden">
+            <div class=" flex justify-center items-center p-4 gap-2">
+                <a href=" #undangan" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
+                    <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-1-1-1.png"
+                        class="grayscale" alt="" height="50" width="50">
+                </a>
+                <a href="#mempelai" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
+                    <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-2-2-1.png"
+                        class="grayscale" alt="" height="50" width="50">
+                </a>
+                <a href="#acara" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
+                    <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-3-1-2.png"
+                        class="grayscale" alt="" height="50" width="50">
+                </a>
+                <a href="#gift" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
+                    <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/menu-konfirmasi-kehadiran.png"
+                        class="grayscale" alt="" height="50" width="50">
+                </a>
+                <a href="#ucapan" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
+                    <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-5-1-1.png"
+                        class="grayscale" alt="" height="50" width="50">
+                </a>
+            </div>
+        </div>
+        <section id="undangan" class="flex justify-center items-center flex-col gap-4 background w-full pt-28 pb-32">
+            <h1 class="text-2xl font-semibold text-center">You Are Invited To<br>The Wedding Of</h1>
+            <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/hfhfhfmmng-3.png" alt="" width="200px">
+            <h1 class="font-bold font-lobster text-indigo-500 text-4xl">Ichsan & Jisoo</h1>
+            <p class="font-semibold">Minggu, 23 Februari 2025</p>
+            <div class="grid grid-cols-4 gap-5 mt-3">
+                <div class="bg-indigo-500 flex flex-col text-center text-sm p-4 rounded-xl text-white">
+                    <span id="hari"></span>
+                    <h1>Hari</h1>
+                </div>
+                <div class="bg-indigo-500 flex flex-col text-center text-sm p-4 rounded-xl text-white">
+                    <span id="jam"></span>
+                    <h1>Jam</h1>
+                </div>
+                <div class="bg-indigo-500 flex flex-col text-center text-sm p-4 rounded-xl text-white">
+                    <span id="menit"></span>
+                    <h1>Menit</h1>
+                </div>
+                <div class="bg-indigo-500 flex flex-col text-center text-sm p-4 rounded-xl text-white">
+                    <span id="detik"></span>
+                    <h1>Detik</h1>
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="-mt-28 w-full flex flex-col">
+            <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,225 C 36.59976473076212,281.2646514578762 73.19952946152424,337.52930291575245 120,324 C 166.80047053847576,310.47069708424755 223.80164688466522,227.1474397948664 283,186 C 342.1983531153348,144.8525602051336 403.59388299981504,145.8809379047821 448,173 C 492.40611700018496,200.1190620952179 519.822821116075,253.32880858600544 562,255 C 604.177178883925,256.67119141399456 661.1148325358852,206.8038277511962 713,184 C 764.8851674641148,161.1961722488038 811.7178487403844,165.4558804092098 854,194 C 896.2821512596156,222.5441195907902 934.0137725025775,275.3726506119644 991,255 C 1047.9862274974225,234.6273493880356 1124.227061249306,141.05351714293266 1175,137 C 1225.772938750694,132.94648285706734 1251.0779825001982,218.41328081630496 1291,248 C 1330.9220174998018,277.58671918369504 1385.4610087499009,251.29335959184752 1440,225 L 1440,600 L 0,600 Z"
+                    class="fill-current text-indigo-500 transition-all duration-300 ease-in-out delay-150 path-0">
+                </path>
+            </svg>
+            <h1 class="bg-indigo-500 pb-16 text-center text-md text-white flex flex-wrap pb-28 pt-2 p-5">“Dan
+                “Dan Diantara Tanda-tanda (Kebesaran) -Nya Ialah Dia Menciptakan Pasangan-pasangan Untukmu Dari
+                Jenismu Sendiri, Agar Kamu Cenderung Dan Merasa Tenteram Kepadanya, Dan Dia Menjadikan Diantaramu
+                Rasa Kasih Dan Sayang. Sungguh, Pada Yang Demikian Itu Benar-benar Terdapat Tanda-tanda (Kebesaran
+                Allah) Bagi Kaum Yang Berfikir”
+                <br>{ Q.S : Ar-Rum : 21 }
+            </h1>
+        </div>
+
+        <section id="mempelai" class="flex justify-center items-center flex-col gap-4 w-full background -mt-8">
+            <h1 class="text-md text-center mt-40 p-5">Dengan Memohon Rahmat Dan Ridho Dari Allah SWT. Kami Bermaksud
+                Menyelenggarakan Acara </h1>
+            <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/gdgdgdgdmn-2.png" alt="" width="400px"
+                height="400px">
+            <div class="flex flex-col gap-2 text-center">
+                <h1 class="text-2xl font-bold font-lobster">Jisoo</h1>
+                <h2 class="text-xl font-semibold">Putri Pertama dari :</h2>
+                <p>Bpk. Lorem & Ibu Siti Ipsum</p>
+                <span class="text-4xl mt-5 mb-5 font-great-vibes">&</span>
+                <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/fsfgfhf-2.png" alt="" width="400px"
+                    height="400px">
+                <h1 class="text-2xl font-bold font-lobster">Muhammad Ichsan Haekal</h1>
+                <h2 class="text-xl font-semibold">Putra Bungsu dari :</h2>
+                <p class="pb-40">Alm Bpk. lorem & Ibu ipsum</p>
+            </div>
+        </section>
+
+        <section id="acara" class="flex justify-center items-center flex-col gap-4 w-full background -mt-8 pb-16">
+            <h1 class="text-md text-center mt-28 p-5 text-xl">Insya Allah Acara Akan Dilaksanakan Pada :</h1>
+            <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-3-1-2.png" alt="" width="100px"
+                height="100px" class="grayscale">
+            <div class="flex flex-col gap-2 text-center">
+                <h1 class="text-4xl text-indigo-500 font-bold font-['Dancing_Script']">Akad Nikah</h1>
+                <h2 class="text-xl font-semibold"><i class="fa fa-calendar"></i> Minggu, 23 Februari 2025</h2>
+                <p class="fa fa-clock-o"> Pukul : 09.00 WIB</p>
+                <h1 class="text-4xl text-indigo-500 font-bold font-['Dancing_Script']">Resepsi</h1>
+                <h2 class="text-xl font-semibold"><i class="fa fa-calendar"></i> Minggu, 23 Februari 2025</h2>
+                <p class="fa fa-clock-o"> Pukul : 09.00 WIB</p>
+                <h1 class="text-md p-3"><span class="font-bold text-2xl">Bertempat di: </span></h1>
+                <p class="text-md p-3">Kediaman
+                    Mempelai
+                    Wanita
+                    Kp. Ciliang RT/RW 004/001 Kel. Kadumerak
+                    Kec. Karangtanjung Kab. Pandeglang-Banten</p>
+                <div class="p-10 flex flex-col justify-center items-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5716.031237634968!2d106.09434641196432!3d-6.317008361792741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4223da2686068f%3A0x3d81f721018f08ba!2sProgrammer%20Home!5e1!3m2!1sid!2sid!4v1739960024648!5m2!1sid!2sid"
+                        width="300" height="350" class="border border-2 border-indigo-500" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <button
+                        class="rounded-md bg-indigo-500 pl-4 pr-4 pt-2 pb-2 text-white mt-5 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"><i
+                            class="fa fa-map-marker"> <a
+                                href="https://www.google.com/maps?ll=-6.317014,106.096927&z=15&t=h&hl=id&gl=ID&mapclient=embed&cid=4432095229441411258">View
+                                Map</a>
+                        </i></button>
+                </div>
+            </div>
+        </section>
+        <section class="flex flex-col gap-4 w-full background -mt-8 pb-32">
+            <h1 class="text-center mt-28 p-5 text-4xl font-great-vibes">Love Story</h1>
+            <div class="p-5">
+                <div class="flex gap-5 pb-20">
+                    <!-- Kontainer untuk lingkaran dan garis vertikal -->
+                    <div class="flex flex-col items-center">
+                        <!-- Lingkaran dengan teks "Love" di tengahnya -->
+                        <div class="">
+                            <div
+                                class="w-10 h-10 bg-gray-50 border-black border-2 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold"><i class="fa fa-heart"></i></span>
+                            </div>
+                            <!-- Garis vertikal -->
+                            <div class="ml-[18px] w-[2px] h-[120px] lg:h-[100px] bg-black"></div>
+                            <div
+                                class="w-10 h-10 bg-gray-50 border-black border-2 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold"><i class="fa fa-heart"></i></span>
+                            </div>
+                            <div class="ml-[18px] w-[2px] h-[280px] lg:h-[200px] bg-black"></div>
+                            <div
+                                class="w-10 h-10 bg-gray-50 border-black border-2 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold"><i class="fa fa-heart"></i></span>
+                            </div>
+                            <div class="ml-[18px] w-[2px] h-[250px] lg:h-[200px] bg-black"></div>
+                            <div
+                                class="w-10 h-10 bg-gray-50 border-black border-2 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold"><i class="fa fa-heart"></i></span>
+                            </div>
+                            <div class="ml-[18px] w-[2px] h-[130px] lg:h-[130px] bg-black"></div>
+                            <div
+                                class="w-10 h-10 bg-gray-50 border-black border-2 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold"><i class="fa fa-heart"></i></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Konten teks di sebelah kanan -->
+                    <div class="flex flex-col gap-5">
+                        <div class="mt-10 bg-gray-50 p-5 rounded-md">
+                            <h1 class="text-md mb-5 text-indigo-500 font-semibold">Perkenalan</h1>
+                            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quam
+                                in debitis qui fugiat aut voluptatum ex nisi, tempora dicta saepe! Iusto error
+                                debitis eligendi aperiam eos est cupiditate voluptatem!
+                            </p>
+                        </div>
+                        <div class="mt-10 bg-gray-50 p-5 rounded-md">
+                            <h1 class="text-md mb-5 text-indigo-500 font-semibold">Lamaran</h1>
+                            <p class="text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
+                                nemo accusamus necessitatibus ab quaerat natus modi hic praesentium at quisquam iste
+                                mollitia cum vel perspiciatis accusantium soluta eos placeat quam aliquid dolores
+                                laboriosam, exercitationem voluptate?
+                            </p>
+                        </div>
+                        <div class="mt-10 bg-gray-50 p-5 rounded-md">
+                            <h1 class="text-md mb-5 text-indigo-500 font-semibold">Menikah</h1>
+                            <p class="text-md">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
+                                officia delectus deserunt, iusto vitae tempora inventore aperiam. Quidem veniam
+                                similique porro vel deleniti dolorum explicabo in debitis qui quaerat. Eius iure ab
+                                eum, labore maxime dolore explicabo odit in repellat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="gift"
+            class="flex flex-col text-center items-center justify-center gap-4 w-full background -mt-8 pb-32">
+            <h1 class="text-center mt-28 p-5 text-4xl font-great-vibes">Wedding Gift</h1>
+            <p class="text-md text-center pl-5 pr-5 font-semibold">Doa Restu Anda merupakan karunia yang sangat
+                berarti bagi kami.
+                Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.</p>
+            <div class="flex flex-col justify-center items-center text-center">
+                <img src=" https://kumengundangmu1.my.id/wp-content/uploads/2024/07/pay-dana.png" alt="" height="150"
+                    width="150">
+                <h1 class="font-semibold">Ichsan</h1>
+                <p id="dana">0231321</p>
+                <button id="salinNorek" class="bg-indigo-500 p-2 mt-3 mb-3 rounded-md text-sm text-white"><i
+                        class="fa fa-clipboard"></i>
+                    Copy
+                    No.
+                    Rekening</button>
+            </div>
+            <div class="flex flex-col justify-center items-center text-center">
+                <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/pay-bca-1.png" alt="" height="150"
+                    width="150">
+                <h1 class="font-semibold">Jiso</h1>
+                <p id="bank">3213213122113</p>
+                <button id="salinNorek2" class="bg-indigo-500 p-2 mt-3 rounded-md text-sm text-white"><i
+                        class="fa fa-clipboard"></i>
+                    Copy
+                    No.
+                    Rekening</button>
+            </div>
+            <div class="flex flex-col justify-center items-center text-center p-10 pt-5">
+                <h1 class="font-semibold text-md">Anda Juga Bisa Mengirim
+                    Kado Fisik Ke Alamat Berikut</h1>
+                <p id="alamat">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel tempore consequuntur quos eius.
+                    Quos, praesentium. Assumenda!</p>
+                <button id="salinAlamatBtn" class="bg-indigo-500 p-2 mt-3 mb-3 rounded-md text-sm text-white"><i
+                        class="fa fa-clipboard"></i>
+                    Copy Alamat</button>
+            </div>
+        </section>
+        <section id="konfirmasi"
+            class=" flex flex-col text-center items-center justify-center gap-4 w-full background -mt-8 pb-32">
+            <h1 class=" text-center mt-28 p-5 text-4xl font-great-vibes">Konfirmasi Kehadiran</h1>
+            <div class="flex p-10 rounded-xl flex-col bg-indigo-500 ml-10 mr-10 gap-5">
+                <form id="invitationForm" class="flex flex-col gap-5">
+                    <input type="text" id="nama" class="w-full border border-2 border-indigo-500 rounded-md p-3"
+                        required placeholder="Nama">
+                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm"
+                        required>Semoga Sakinah mawadah warahmah
+                      </textarea>
+                    <label class="flex flex-col">
+                        <h1 class="text-xl text-black">Konfirmasi</h1>
+                        <!-- Opsi 1: default checked -->
+                        <div class="flex items-center">
+                            <input type="radio" name="konfirmasi" id="hadir" class="mr-2" value="InsyaAllah Hadir"
+                                checked required>
+                            <label for="hadir" class="text-white">Hadir</label>
+                        </div>
+                        <!-- Opsi 2 -->
+                        <div class="flex items-center">
+                            <input type="radio" name="konfirmasi" id="tidak-hadir" class="mr-2" value="Tidak Hadir">
+                            <label for="tidak-hadir" class="text-white">Tidak Hadir</label>
+                        </div>
+                        <!-- Opsi 3 -->
+                        <div class="flex items-center">
+                            <input type="radio" name="konfirmasi" id="mungkin" class="mr-2" value="Mungkin">
+                            <label for="mungkin" class="text-white">Mungkin</label>
+                        </div>
+                    </label>
+                    <button type="submit" id="kirim"
+                        class="bg-indigo-700 p-2 rounded-md text-white hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                        Kirim via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let mengundang = urlParams.get('to');
+        if (!mengundang) {
+            mengundang = 'Stranger'
+        }
+        document.getElementById('mengundang').textContent = mengundang;
+        document.getElementById('open-invitation').addEventListener('click', function () {
+            // alert('Hello World!');
+            document.getElementById('invitation-overlay').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+        });
+        document.getElementById('salinAlamatBtn').addEventListener('click', function () {
+            navigator.clipboard.writeText(document.getElementById('alamat').textContent).then(() => {
+                alert('Teks berhasil disalin ke clipboard!');
+            }).catch(err => {
+                alert('Gagal menyalin teks: ' + err);
+            });
+        });
+        document.getElementById('salinNorek').addEventListener('click', function () {
+            navigator.clipboard.writeText(document.getElementById('dana').textContent).then(() => {
+                alert('Teks berhasil disalin ke clipboard!');
+            }).catch(err => {
+                alert('Gagal menyalin teks: ' + err);
+            });
+        });
+        document.getElementById('salinNorek2').addEventListener('click', function () {
+            navigator.clipboard.writeText(document.getElementById('bank').textContent).then(() => {
+                alert('Teks berhasil disalin ke clipboard!');
+            }).catch(err => {
+                alert('Gagal menyalin teks: ' + err);
+            });
+        });
+        document.getElementById('invitationForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Mencegah form submit default
+
+            // Ambil nilai dari input
+            const nama = document.getElementById('nama').value.trim();
+            const ucapan = document.getElementById('ucapan').value.trim();
+            const konfirmasiEl = document.querySelector('input[name="konfirmasi"]:checked');
+            const konfirmasi = konfirmasiEl ? konfirmasiEl.value : '';
+
+            // Gabungkan data menjadi pesan
+            const message = `*${nama}*\n\n${ucapan}\n\n\n ${konfirmasi}`;
+
+            // Buat URL WhatsApp
+            const phone = "6283841365567";
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${encodedMessage}&type=phone_number&app_absent=0`;
+
+            // Buka URL WhatsApp di tab baru
+            window.open(waUrl, '_blank');
+        });
+        // Set target date ke 28 Februari 2025, pukul 00:00:00
+        const targetDate = new Date('2025-02-23T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            // Jika countdown telah selesai, set semua nilai ke 0 dan hentikan interval
+            if (diff < 0) {
+                document.getElementById('hari').textContent = "0";
+                document.getElementById('jam').textContent = "0";
+                document.getElementById('menit').textContent = "0";
+                document.getElementById('detik').textContent = "0";
+                clearInterval(interval);
+                return;
+            }
+
+            // Hitung hari, jam, menit, dan detik
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Perbarui tampilan countdown
+            document.getElementById('hari').textContent = days;
+            document.getElementById('jam').textContent = hours;
+            document.getElementById('menit').textContent = minutes;
+            document.getElementById('detik').textContent = seconds;
+        }
+
+        // Panggil fungsi updateCountdown setiap detik
+        updateCountdown(); // Pemanggilan awal
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
