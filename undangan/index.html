@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <title>Kampusku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
@@ -86,7 +87,7 @@
     <main id="main-content"
         class="w-full lg:w-1/4 border border-2 border-indigo-500 flex flex-col justify-center mx-auto min-h-screen hidden">
         <nav class="flex fixed navbar lg:w-1/5 lg:mx-auto justify-center items-center w-full bg-indigo-500">
-            <div class=" flex justify-center items-center p-4 gap-2">
+            <div class=" flex justify-center items-center p-10 pt-5 pb-5 gap-4">
                 <a href=" #undangan" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
                     <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-1-1-1.png"
                         class="grayscale" alt="" height="50" width="50">
@@ -311,22 +312,19 @@
                 <form id="invitationForm" class="flex flex-col gap-5">
                     <input type="text" id="nama" class="w-full border border-2 border-indigo-500 rounded-md p-3"
                         placeholder="Nama">
-                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm">Semoga Sakinah mawadah warahmah
+                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm">
                       </textarea>
                     <label class="flex flex-col">
                         <h1 class="text-xl text-amber-500 text-start">Konfirmasi</h1>
-                        <!-- Opsi 1: default checked -->
                         <div class="flex items-center">
                             <input type="radio" name="konfirmasi" id="hadir" class="mr-2" value="InsyaAllah Hadir"
                                 checked required>
                             <label for="hadir" class="text-white">Hadir</label>
                         </div>
-                        <!-- Opsi 2 -->
                         <div class="flex items-center">
                             <input type="radio" name="konfirmasi" id="tidak-hadir" class="mr-2" value="Tidak Hadir">
                             <label for="tidak-hadir" class="text-white">Tidak Hadir</label>
                         </div>
-                        <!-- Opsi 3 -->
                         <div class="flex items-center">
                             <input type="radio" name="konfirmasi" id="mungkin" class="mr-2" value="Mungkin">
                             <label for="mungkin" class="text-white">Mungkin</label>
@@ -352,6 +350,7 @@
         }
         document.getElementById('mengundang').textContent = mengundang;
         document.getElementById('nama').value = mengundang;
+        document.getElementById('ucapan').value = 'Semoga Sakinah mawadah warahmah'
         document.getElementById('open-invitation').addEventListener('click', function () {
             // alert('Hello World!');
             document.getElementById('invitation-overlay').classList.add('hidden');
