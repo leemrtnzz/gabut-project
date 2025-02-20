@@ -84,8 +84,7 @@
                 nama/gelar</p>
         </section>
     </div>
-    <main id="main-content"
-        class="w-full lg:w-1/4 flex flex-col justify-center mx-auto min-h-screen hidden">
+    <main id="main-content" class="w-full lg:w-1/4 flex flex-col justify-center mx-auto min-h-screen hidden">
         <nav class="flex fixed navbar lg:w-1/5 lg:mx-auto justify-center items-center w-full bg-indigo-500">
             <div class=" flex justify-center items-center p-10 pt-5 pb-5 gap-4">
                 <a href=" #undangan" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
@@ -142,8 +141,8 @@
                     class="fill-current text-indigo-500 transition-all duration-300 ease-in-out delay-150 path-0">
                 </path>
             </svg>
-            <h1 class="bg-indigo-500 pb-16 text-center text-md text-white flex flex-wrap pb-28 pt-2 p-5">“Dan
-                “Dan Diantara Tanda-tanda (Kebesaran) -Nya Ialah Dia Menciptakan Pasangan-pasangan Untukmu Dari
+            <h1 class="bg-indigo-500 pb-16 text-center text-md text-white flex flex-wrap pb-28 pt-2 p-5">“Dan Diantara
+                Tanda-tanda (Kebesaran) -Nya Ialah Dia Menciptakan Pasangan-pasangan Untukmu Dari
                 Jenismu Sendiri, Agar Kamu Cenderung Dan Merasa Tenteram Kepadanya, Dan Dia Menjadikan Diantaramu
                 Rasa Kasih Dan Sayang. Sungguh, Pada Yang Demikian Itu Benar-benar Terdapat Tanda-tanda (Kebesaran
                 Allah) Bagi Kaum Yang Berfikir”
@@ -153,7 +152,7 @@
 
         <section id="mempelai" class="flex justify-center items-center flex-col gap-4 w-full background -mt-8">
             <h1 class="text-md text-center mt-40 p-5">Dengan Memohon Rahmat Dan Ridho Dari Allah SWT. Kami Bermaksud
-                Menyelenggarakan Acara </h1>
+                Menyelenggarakan Acara Pernikahan Kami</h1>
             <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/gdgdgdgdmn-2.png" alt="" width="400px"
                 height="400px">
             <div class="flex flex-col gap-2 text-center">
@@ -312,7 +311,7 @@
                 <form id="invitationForm" class="flex flex-col gap-5">
                     <input type="text" id="nama" class="w-full border border-2 border-indigo-500 rounded-md p-3"
                         placeholder="Nama">
-                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm">
+                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm">Selamat menempuh hidup baru! Semoga pernikahan ini menjadi awal dari perjalanan panjang yang penuh cinta, kebahagiaan, dan keberkahan. Semoga setiap hari dalam rumah tangga kalian dipenuhi dengan tawa, kasih sayang, dan pengertian. Teruslah saling mendukung dan menginspirasi satu sama lain dalam setiap langkah kehidupan. Doa kami selalu menyertai, semoga Allah SWT melimpahkan rahmat dan keberkahan dalam setiap detik yang kalian jalani bersama. Selamat berbahagia dan semoga cinta kalian semakin bertumbuh seiring berjalannya waktu.                        
                       </textarea>
                     <label class="flex flex-col">
                         <h1 class="text-xl text-amber-500 text-start">Konfirmasi</h1>
@@ -328,6 +327,18 @@
                         <div class="flex items-center">
                             <input type="radio" name="konfirmasi" id="mungkin" class="mr-2" value="Mungkin">
                             <label for="mungkin" class="text-white">Mungkin</label>
+                        </div>
+                    </label>
+                    <label class="flex flex-col">
+                        <h1 class="text-xl text-amber-500 text-start">Pihak</h1>
+                        <div class="flex items-center">
+                            <input type="radio" name="pihak" id="perempuan" class="mr-2" value="perempuan" checked
+                                required>
+                            <label for="perempuan" class="text-white">Perempuan</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="pihak" id="laki_laki" class="mr-2" value="laki-laki">
+                            <label for="laki-laki" class="text-white">Laki-laki</label>
                         </div>
                     </label>
                     <button type="submit" id="kirim"
@@ -350,7 +361,6 @@
         }
         document.getElementById('mengundang').textContent = mengundang;
         document.getElementById('nama').value = mengundang;
-        document.getElementById('ucapan').value = 'Semoga Sakinah mawadah warahmah'
         document.getElementById('open-invitation').addEventListener('click', function () {
             // alert('Hello World!');
             document.getElementById('invitation-overlay').classList.add('hidden');
@@ -385,12 +395,17 @@
             const ucapan = document.getElementById('ucapan').value.trim();
             const konfirmasiEl = document.querySelector('input[name="konfirmasi"]:checked');
             const konfirmasi = konfirmasiEl ? konfirmasiEl.value : '';
+            // Ambil radio yang terpilih
+            const pihakEl = document.querySelector('input[name="pihak"]:checked');
+            const pihak = pihakEl ? pihakEl.value : '';
+            // Tetapkan nomor telepon berdasarkan pilihan
+            let phone = pihak === 'perempuan' ? '6285710069527' : '6283841365567';
 
             // Gabungkan data menjadi pesan
             const message = `*${nama}*\n\n${ucapan}\n\n\n ${konfirmasi}`;
 
             // Buat URL WhatsApp
-            const phone = "6283841365567";
+            // const phone = "6283841365567";
             const encodedMessage = encodeURIComponent(message);
             const waUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${encodedMessage}&type=phone_number&app_absent=0`;
 
