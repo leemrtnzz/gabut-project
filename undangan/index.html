@@ -76,10 +76,11 @@
                 Mengundang Anda Untuk Hadir Di Acara
                 Pernikahan Kami.</p>
             <button id="open-invitation"
-                class="border bg-indigo-500 p-10 pt-4 pb-4 rounded-xl text-white animate__animated animate__fadeInUp"><i
-                    class="fa fa-envelope-open-o"></i>
-                Buka
-                Undangan</button>
+                class="border bg-indigo-500 p-10 pt-4 pb-4 rounded-xl text-white animate__animated animate__fadeInUp" ">
+                <i class=" fa fa-envelope-open-o"></i>
+                Buka Undangan
+            </button>
+
             <p class="p-2 text-center animate__animated animate__fadeInUp">Mohon maaf apabila ada kesalahan penulisan
                 nama/gelar</p>
         </section>
@@ -353,6 +354,15 @@
         </section>
     </main>
     <script>
+
+        function play() {
+            var audio = new Audio('https://kumengundangmu1.my.id/wp-content/uploads/2024/07/tiara-andiri-lagu-pernikahan-kita-demi-tuhan-akku-1.mp3');
+            audio.addEventListener('ended', function () {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            audio.play();
+        }
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         let mengundang = urlParams.get('to');
@@ -363,6 +373,7 @@
         document.getElementById('nama').value = mengundang;
         document.getElementById('open-invitation').addEventListener('click', function () {
             // alert('Hello World!');
+            play()
             document.getElementById('invitation-overlay').classList.add('hidden');
             document.getElementById('main-content').classList.remove('hidden');
         });
@@ -445,6 +456,7 @@
         // Panggil fungsi updateCountdown setiap detik
         updateCountdown(); // Pemanggilan awal
         const interval = setInterval(updateCountdown, 1000);
+
     </script>
 </body>
 
