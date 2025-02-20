@@ -355,7 +355,6 @@
         </section>
     </main>
     <script>
-
         function play() {
             var audio = new Audio('https://kumengundangmu1.my.id/wp-content/uploads/2024/07/tiara-andiri-lagu-pernikahan-kita-demi-tuhan-akku-1.mp3');
             audio.addEventListener('ended', function () {
@@ -375,6 +374,11 @@
         document.getElementById('open-invitation').addEventListener('click', function () {
             // alert('Hello World!');
             play()
+            const nama = document.getElementById('nama').value.trim()
+            if (!nama || nama === 'Stranger') {
+                document.getElementById('kirim').disabled = true;
+                document.getElementById('kirim').classList.add('cursor-not-allowed');
+            }
             document.getElementById('invitation-overlay').classList.add('hidden');
             document.getElementById('main-content').classList.remove('hidden');
         });
@@ -410,6 +414,7 @@
             // Ambil radio yang terpilih
             const pihakEl = document.querySelector('input[name="pihak"]:checked');
             const pihak = pihakEl ? pihakEl.value : '';
+
             // Tetapkan nomor telepon berdasarkan pilihan
             let phone = pihak === 'perempuan' ? '6285710069527' : '6283841365567';
 
