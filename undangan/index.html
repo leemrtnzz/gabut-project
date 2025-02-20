@@ -54,8 +54,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            z-index: 1;
-            margin: 0px 0px 0px 0px;
+            z-index: 1000;
         }
     }
 </style>
@@ -86,7 +85,7 @@
     </div>
     <main id="main-content"
         class="w-full lg:w-1/4 border border-2 border-indigo-500 flex flex-col justify-center mx-auto min-h-screen hidden">
-        <div class="flex navbar justify-center items-center -mt-28 hidden">
+        <nav class="flex fixed navbar lg:w-1/5 lg:mx-auto justify-center items-center w-full bg-indigo-500">
             <div class=" flex justify-center items-center p-4 gap-2">
                 <a href=" #undangan" class="p-2 border-2 border-indigo-700 rounded-md bg-indigo-500 drop-shadow-xl">
                     <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-1-1-1.png"
@@ -108,8 +107,7 @@
                     <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/ICON-22-5-1-1.png"
                         class="grayscale" alt="" height="50" width="50">
                 </a>
-            </div>
-        </div>
+        </nav>
         <section id="undangan" class="flex justify-center items-center flex-col gap-4 background w-full pt-28 pb-32">
             <h1 class="text-2xl font-semibold text-center">You Are Invited To<br>The Wedding Of</h1>
             <img src="https://kumengundangmu1.my.id/wp-content/uploads/2024/07/hfhfhfmmng-3.png" alt="" width="200px">
@@ -306,15 +304,17 @@
         <section id="konfirmasi"
             class=" flex flex-col text-center items-center justify-center gap-4 w-full background -mt-8 pb-32">
             <h1 class=" text-center mt-28 p-5 text-4xl font-great-vibes">Konfirmasi Kehadiran</h1>
-            <div class="flex p-10 rounded-xl flex-col bg-indigo-500 ml-10 mr-10 gap-5">
+            <p class="text-center text-md pl-5 pr-5 font-semibold">Doa dan restu Bapak/Ibu merupakan kehormatan bagi
+                kami. Mohon konfirmasi kehadiran:
+            </p>
+            <div class="flex p-10 w-4/5 rounded-xl flex-col bg-indigo-500 ml-10 mr-10 gap-5 mt-5 mb-5">
                 <form id="invitationForm" class="flex flex-col gap-5">
                     <input type="text" id="nama" class="w-full border border-2 border-indigo-500 rounded-md p-3"
-                        required placeholder="Nama">
-                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm"
-                        required>Semoga Sakinah mawadah warahmah
+                        placeholder="Nama">
+                    <textarea id="ucapan" class="w-full border border-2 border-indigo-500 rounded-md p-3 text-sm">Semoga Sakinah mawadah warahmah
                       </textarea>
                     <label class="flex flex-col">
-                        <h1 class="text-xl text-black">Konfirmasi</h1>
+                        <h1 class="text-xl text-amber-500 text-start">Konfirmasi</h1>
                         <!-- Opsi 1: default checked -->
                         <div class="flex items-center">
                             <input type="radio" name="konfirmasi" id="hadir" class="mr-2" value="InsyaAllah Hadir"
@@ -338,6 +338,9 @@
                     </button>
                 </form>
             </div>
+            <p class="text-center text-md pl-5 pr-5 font-semibold">Kehadiran Bapak/Ibu sangat berarti bagi
+                kami.<br>Semoga acara ini menjadi berkah dan kebahagiaan bagi kita semua.<br><br>Mohon maaf jika ada
+                kekurangan dalam penyampaian undangan ini."</p>
         </section>
     </main>
     <script>
@@ -348,6 +351,7 @@
             mengundang = 'Stranger'
         }
         document.getElementById('mengundang').textContent = mengundang;
+        document.getElementById('nama').value = mengundang;
         document.getElementById('open-invitation').addEventListener('click', function () {
             // alert('Hello World!');
             document.getElementById('invitation-overlay').classList.add('hidden');
